@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title Page-->
+    <title>Volunteer Registration Page</title>
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+
+    <link href="css/vregs.css" rel="stylesheet" media="all">
+
+    <style>
+        p {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+
+                <div class="card-body">
+
+                    <h2 align="center" class="title">User Registration Form</h2>
+                    <form action="volregconnect.php" method="POST" enctype="multipart/form-data" name="form1">
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Name" name="name" onblur="allLetter(document.form1.name)" required>
+
+                        </div>
+                        <p id="error" style="display:none"></p>
+                        <script type="text/javascript">
+                            function allLetter(inputtxt) {
+                                var p = document.getElementById("error");
+                                var letters = /^[A-Za-z]+$/;
+                                if (inputtxt.value.match(letters)) {
+                                    p.style = "display:none";
+                                    return true;
+                                } else {
+                                    p.innerHTML = "Please Enter Only Alphabets!";
+                                    p.style = "display:inline";
+                                    p.style = "margin-bottom:20px";
+                                    return false;
+                                }
+                            }
+                        </script>
+                        <div class="input-group bg-dark">
+                            <input type="date" id="date" name="dob" value="2000-01-01" min="1950-12-01" max="2020-12-31" class="bg-dark" style="background-color: black; color: white;">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="gender" id="gender" required>
+                                    <option  selected disabled value="" >Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="email" placeholder="Email" name="email" required>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="tel" placeholder="Phone" name="phone" id="ph" onblur="check()" maxlength="10" required>
+                        </div>
+                        <p id="error2" style="display:none"></p>
+                        <script type="text/javascript">
+                            function check() {
+                                var p = document.getElementById("error2");
+                                var a = document.getElementById("ph").value;
+                                var l = a.length;
+                                if (l > 10 || l < 10) {
+
+                                    p.innerHTML = "Phone Number must be 10 digits!!"
+                                    p.style = "display:inline";
+                                    p.style = "margin-bottom:20px";
+
+
+                                } else {
+
+                                    p.style = "display:none";
+                                }
+                            }
+                        </script>
+
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Profession" name="profession" required>
+                        </div>
+
+                        <div class="input-group">
+                            <select id="listBox" name="state" onclick='selct_district(this.value)' required>
+                            <option  selected disabled value="" >State</option></select>
+                        </div>
+
+                        <div class="input-group">
+                            <select id='secondlist' name="city" required>
+                             <option  selected disabled value="" >City</option></select>
+                            <div class="select-dropdown"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="text" placeholder="Blood Group (Format: O+)" name="bgrp" id="bgr" onblur="val1()" required>
+                        </div>
+                        <p id="err" style="display:none"></p>
+                        <script type="text/javascript">
+                            function val1() {
+                                var p = document.getElementById("err");
+                                var b = document.getElementById("bgr");
+                                if (b.value != "O+" && b.value != "B+" && b.value != "AB+" && b.value != "AB-" && b.value != "O-" && b.value != "B-" && b.value != "A-" && b.value != "A+") {
+
+                                    p.innerHTML = "Blood Group Not in Correct Format(Must be: O+ or O- etc)";
+                                    p.style = "display:inline";
+                                    p.style = "margin-bottom:20px";
+                                } else {
+                                    p.style = "display:none";
+                                }
+                            }
+                        </script>
+                        <div class="input-group">
+                            <input class="input--style-3" type="password" placeholder="Password" name="pass" id="pass" required>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="input--style-3" type="password" placeholder=" Confirm Password" name="cpass" id="cp" onblur="val()" required>
+                        </div>
+                        <p id="error1" style="display:none"></p>
+                        <script type="text/javascript">
+                            function val() {
+
+                                var password1 = document.getElementById("pass").value;
+                                var password2 = document.getElementById("cp").value;
+                                var p = document.getElementById("error1");
+                                var letters = /^[A-Za-z]+$/;
+                                if (password1 == password2) {
+                                    p.style = "display:none";
+                                    return true;
+                                } else {
+                                    p.innerHTML = "Password and Confirm Password Fields Do Not Match!!";
+                                    p.style = "display:inline";
+                                    p.style = "margin-bottom:20px";
+
+
+                                    return false;
+                                }
+                            }
+                        </script>
+                        <div class="Picture-upload" style="color: white;">
+                            <label id="l1"> Image to upload : </label>
+                            <input type="file" name="pic" id="pic" accept=".png,.gif,.jpg,.webp">
+
+                        </div>
+
+
+                        <div class="p-t-10">
+                            <button class="btn btn--pill btn--green" type="submit" align="center">Submit</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global1.js"></script>
+
+    <script language="Javascript" src="jquery.js"></script>
+    <script type="text/JavaScript" src='state.js'></script>
+
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

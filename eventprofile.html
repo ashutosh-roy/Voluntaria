@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<style>
+    /* .star-rating {
+        direction: rtl;
+        display: inline-block;
+        padding: 20px
+    }
+    
+    .star-rating input[type=radio] {
+        display: none
+    }
+    
+    .star-rating label {
+        color: #bbb;
+        font-size: 18px;
+        padding: 0;
+        cursor: pointer;
+        -webkit-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out
+    }
+    
+    .star-rating label:hover,
+    .star-rating label:hover~label,
+    .star-rating input[type=radio]:checked~label {
+        color: #f2b600
+    } */
+</style>
+
+<head>
+    <title>Event Profile</title>
+    <link rel="stylesheet" type="text/css" href="css/ep.css">
+    <link href='https://fonts.googleapis.com/css?family=Cherry Swash' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.fn.remsg = function(email_ID, vname, event_id) {
+
+                    //var m = "<tr><form> <td><strong>" + email_ID + "</strong></td> <td>" + event_id + "</td> <td>" + vname + "</td> <td> <div class='rate'> <input type='radio' id='star1' name='" + event_id + "' value='5' /><br> <label for='star5' title='text'></label> <input type='radio' id='star4' name='" + event_id + "' value='4' /> <label for='star4' title='text'></label> <input type='radio' id='star3' name='" + event_id + "' value='3' /> <label for='star3' title='text'></label> <input type='radio' id='star2' name='" + event_id + "' value='2' /> <label for='star2' title='text'></label> <input type='radio' id='star1' name='" + event_id + "' value='1' /> <label for='star1' title='text'></label> </div> </td> </form></tr>";
+                    //var m = "<tr><form> <td><strong>" + email_ID + "</strong></td> <td>" + event_id + "</td> <td>" + vname + "</td> <td> <div class='star-rating'> <input id = 'star-5' type = 'radio' name = '" + event_id + "' value = 'star-5' / > <label for = 'star-5' title = '5 stars' > <i class = 'active fa fa-star' aria - hidden = 'true' > < /i> < /label > <input id = 'star-4' type = 'radio' name = '" + event_id + "' value = 'star-4' / > <label for = 'star-4' title = '4 stars' > <    i class = 'active fa fa-star' aria - hidden = 'true' > < /i> < /label > <input id = 'star-3' type = 'radio' name = 'rating' value = 'star-3' / > <label for = 'star-3'title = '3 stars' ><i class = 'active fa fa-star'aria - hidden = 'true' > < /i> < /label > <input id = 'star-2' type = 'radio' name = 'rating' value = 'star-2' / > <label for = 'star-2' title = '2 stars' > <i class = 'active fa fa-star'aria - hidden = 'true' > < /i> < /label > <input id = 'star-1'type = 'radio'name = 'rating' value = 'star-1' / > <label for = 'star-1' title = '1 star' > <i class = 'active fa fa-star' aria - hidden = 'true' > < /i> < /label > </div> </td > < /form></tr > ";
+                    var n = "<tr><td><strong>" + email_ID + "</strong></td> <td>" + event_id + "</td> <td>" + vname;
+                    $(".details").append(n);
+                    $('body').on('click', 'input[name ="event_id"]', function() {
+                        alert($('input[name ="event_id"]').val());
+
+                    });
+                }
+                /*$('body').on('click', '.ty', function() {
+                    alert($('.ty').val());
+                    // $.ajax({                 
+                    //                             type: 'POST',
+                    //                             url: 'sresultset.php',
+                    //                             data: {sendCellValue: $(this).html()},
+                    //                             success:function(data){
+                    //                              sresult= $.parseJSON(data);
+                    //                                $('#chasesearch').html(sresult);
+                    //                                $('.joining').show(200);
+                    //                             }
+                    //                          });
+                });*/
+            $.fn.viewmsg = function() {
+                var data = '';
+                $.ajax({
+                    url: "displayvolunteerlist.php",
+                    type: "POST",
+                    data: {
+                        data: data
+                    },
+                    success: function(data) {
+                        var getarray = jQuery.parseJSON(data);
+                        getarray.forEach(function(x) {
+                            $.fn.remsg(x[0], x[1], x[2]);
+                        });
+                    }
+                });
+            }
+            $.fn.viewmsg();
+        });
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+
+            <li id="log"><a href="index.html">Logout</a></li>
+            <li id="pro">
+                <a href="adminpro.php"><img src="images/makefg.png" height="20px" width="20px" alt="profile page"></a>
+            </li>
+
+
+
+        </ul>
+
+    </nav>
+    <h1 align="center"> Event Name</h1>
+    <h2 align="center" id="et"> Event Type</h2>
+    <img src="images/vevent.jpg" height="600px" width="1400px">
+    <div id="vol">
+        <h2 align="center">Volunteer Details</h2>
+        <table class="details">
+            <thead>
+                <tr>
+                    <th>Email ID</th>
+                    <th>Event ID</th>
+                    <th>Volunteer Name</th>
+                </tr>
+            </thead>
+
+            <!--<tbody>
+                <tr>
+                    <td><strong>showSpeed</strong></td>
+                    <td>15</td>
+                    <td>The speed of the show/reveal</td>
+                    <td>
+                        <div class="rate">
+                            <input type="radio" id="star5" name="rate" value="5" />
+                            <label for="star5" title="text"></label>
+                            <input type="radio" id="star4" name="rate" value="4" />
+                            <label for="star4" title="text"></label>
+                            <input type="radio" id="star3" name="rate" value="3" />
+                            <label for="star3" title="text"></label>
+                            <input type="radio" id="star2" name="rate" value="2" />
+                            <label for="star2" title="text"></label>
+                            <input type="radio" id="star1" name="rate" value="1" />
+                            <label for="star1" title="text"></label>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>showSpeed</strong></td>
+                    <td>15</td>
+                    <td>The speed of the show/reveal</td>
+                    <td><span class="rate">
+                      <input type="radio" id="star5" name="rate" value="5" />
+                      <label for="star5" title="text"></label>
+                      <input type="radio" id="star4" name="rate" value="4"/>
+                      <label for="star4" title="text"></label>
+                      <input type="radio" id="star3" name="rate" value="3" />
+                      <label for="star3" title="text"></label>
+                      <input type="radio" id="star2" name="rate" value="2" />
+                      <label for="star2" title="text"></label>
+                      <input type="radio" id="star1" name="rate" value="1" />
+                      <label for="star1" title="text"></label>
+                     
+                    </span></td>
+                </tr>
+
+            </tbody>-->
+        </table>
+    </div>
+</body>
+
+</html>

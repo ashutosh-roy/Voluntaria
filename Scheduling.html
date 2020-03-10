@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<!--
+	Prism by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+
+    <title>Scheduling</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main2.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+
+
+        </ul>
+
+    </nav>
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner split">
+            <section>
+                <script>
+                    var slideIndex = 0;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                    }
+                </script>
+                <div class="slideshow-container">
+
+                    <!-- Full-width slides/quotes -->
+                    <div class="mySlides">
+                        <q><font color=black>“The smallest act of kindness is worth more than the grandest intention.”</font></q>
+                        <p class="author">- Oscar Wilde</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q><font color = black>“Volunteering is the ultimate exercise in democracy. You vote in elections once a year, but when you volunteer, you vote every day about the kind of community you want to live in”.</font></q>
+                        <p class="author">- ~Author Unknown</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q><font color = black>“Wherever you turn, you can find someone who needs you. Even if it is a little thing, do something for which there is no pay but the privilege of doing it. Remember, you don’t live in the world all of your own.”</font></q>
+                        <p class="author">- Albert Schweitzer</p>
+                    </div>
+
+                    <!-- Next/prev buttons -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+                <!-- Dots/bullets/indicators -->
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </section>
+            <section>
+                <h2>Track your Volunteers & work progress like never before</h2>
+                <ul class="actions">
+                    <li><a href="file:///C:/Users/Debmalya%20Das/Downloads/Dbms%20Project-20200120T042032Z-001/Dbms%20Project/reg.html" class="button special">Get started</a></li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="wrapper">
+        <div class="inner split">
+            <section>
+                <h2>
+                    <font color=# 006999>Let's Track</font>
+                </h2>
+                <p>Voluntaria takes you to a volunteer forum where you can track and schedule the tasks given to a volunteer. Monitor the work progress and fetch output from the work done. Assign volunteers with multiple tasks with their respective deadlines.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button alt">Learn more</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul class="checklist">
+                    <li>
+                        <font color=# 006999>Assign Volunteers with a task</font>
+                    </li>
+                    <li>
+                        <font color=# 006999>Provide them with resources for completion of the task</font>
+                    </li>
+                    <li>
+                        <font color=# 006999>Schedule their training times, meetings, work hours & deadlines </font>
+                    </li>
+                    <li>
+                        <font color=# 006999>Check their work progress</font>
+                    </li>
+                    <li>
+                        <font color=# 006999>Access and Analyse their data on completion of the tasks</font>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper style2 alt">
+        <!--<div class="inner">
+					<div class="spotlight">
+						<div class="image">
+							<img src="images/pic01.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Ipsum pharetra tempus</h3>
+							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Details</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="spotlight">
+						<div class="image">
+							<img src="images/pic02.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Magna consequat felis</h3>
+							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Details</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="spotlight">
+						<div class="image">
+							<img src="images/pic03.jpg" alt="" />
+						</div>
+						<div class="content">
+							<h3>Vitae placerat adipiscing</h3>
+							<p>Lorem ipsum nisl sed cursus magna et amet veroeros. Sed phasellus malesuada quis orci. Pellentesque eget consequat.</p>
+							<ul class="actions">
+								<li><a href="#" class="button alt">Details</a></li>
+							</ul>
+						</div>
+					</div>-->
+        <ul class="actions special">
+            <li><a href="#"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button></a></li>
+        </ul>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="wrapper">
+        <div class="inner split">
+            <section>
+                <img src="images/fl.png" alt="HTML5 Icon" height="120" breadth="120">
+                <p>For more queries or info on Voluntaria fill the details below:</p>
+                <form action="#" class="alt" method="POST">
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <input name="name" placeholder="Name" type="text">
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input name="email" placeholder="Email" type="email">
+                        </div>
+                        <div class="12u$">
+                            <textarea name="message" placeholder="Message" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input class="alt" value="Send message" type="submit"></li>
+                    </ul>
+                </form>
+            </section>
+            <section>
+                <ul class="contact">
+                    <li class="fa-twitter"><a href="#">twitter.com/@UVoluntaria</a></li>
+                    <li class="fa-facebook"><a href="#">facebook.com/Voluntaria</a></li>
+                    <li class="fa-instagram"><a href="#">instagram.com/U_Voluntaria</a></li>
+                    <li class="fa-envelope"><a href="#">teamencrypt024@gmail.com</a></li>
+                    <li class="fa-home">364, Biren Roy Road (East) Kolkata-700008</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="copyright">
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

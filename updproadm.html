@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Account registration form</title>
+    <link href='C:\Users\Debmalya Das\Desktop\Registration\Assets\CSS\fonts.css' rel='stylesheet' type='text/css'>
+    <link href="C:\Users\Debmalya Das\Desktop\Registration\Assets\CSS\fonts1.css" rel="stylesheet">
+    <style>
+      body 
+      {
+        /* background-image: linear-gradient(#042736,#005073); */
+        background-color: #000000;
+        min-height: 100%;
+      }
+      body,div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: rgb(250, 250, 250);
+      }
+      h1 {
+      margin: 0;
+      font-weight: 400;
+      color:rgba(255, 255, 255, 0.897);
+      font-weight: bold;
+      }
+      h3 {
+      margin: 12px 0;
+      color:rgba(255, 255, 255, 0.849) ;
+      }
+      .main-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #121212;
+      background-image: linear-gradient(#000000, rgba(0, 0, 0, 0.938));
+      height:100%;
+      }
+      form {
+      width: 70%;
+      padding: 20px;
+      }
+      fieldset {
+      border: solid;
+      /* border-color:#3700B3; */
+      /* background-color: #1ebbd7; */
+      border-color: rgba(214, 214, 214, 0.637);
+      background-color: #1F1B24;
+      }
+      .account-details, .personal-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .account-details >div, .personal-details >div >div {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      }
+      .account-details >div, .personal-details >div, input, label {
+      width: 100%;
+      }
+      label {
+      padding: 0 5px;
+      text-align: right;
+      vertical-align: middle;
+      font-size:22px;
+      margin-bottom:20px;
+      }
+      input {
+      padding: 5p
+      vertical-align: middle;
+      font-size: 22px;
+      margin-bottom:20px;
+      }
+      .checkbox {
+      margin-bottom: 10px;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(100% + 26px);
+      padding: 5px 0;
+      }
+      select {
+      background: transparent;
+      }
+      .gender input {
+      width: auto;
+      } 
+      .gender label {
+      padding: 0 5px 0 0;
+      } 
+      .bdate-block {
+      display: flex;
+      justify-content: space-between;
+      }
+      .birthdate select.day {
+      width: 35px;
+      }
+      .birthdate select.mounth {
+      width: calc(100% - 94px);
+      }
+      .birthdate input {
+      width: 30%;
+      margin-left:10px;
+      vertical-align: unset;
+      }
+      .checkbox input, .children input {
+      width: auto;
+      margin: -2px 10px 0 0;
+      }
+      .checkbox a {
+      color: #df3a3a;
+      }
+      .checkbox a:hover {
+      color: #df3a3a;
+      }
+      button {
+      width: 30%;
+      height:40px;
+      padding: 10px 0;
+      margin: 30px;
+      margin-left:350px;
+      border-radius: 5px; 
+      border: none;
+      background: rgb(31, 43, 216);
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      }
+      button:hover {
+      background: #f11b5c;
+      }
+      @media (min-width: 568px) {
+      .account-details >div, .personal-details >div {
+      width: 50%;
+      }
+      label {
+      width: 40%;
+      padding-right: 15px;
+      }
+      input {
+      width: 50%;
+      color:black;
+      }
+      select, .children, .gender, .bdate-block {
+      width: calc(60% + 16px);
+      }
+      }
+      #l{
+          margin-left:10px;
+      }
+      legend{
+          font-size: 22px;
+          color:white;
+      }
+      p{
+          color:red;
+          margin-bottom:30px;
+      }
+      *{
+        color: rgba(226, 224, 224, 0.692);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-block">
+    <form action="udpproadmconnect.php" name="form1" method="POST">
+      <h1 align="center" style="color: rgba(255, 247, 247, 0.89)">Update Your Profile</h1>
+      <fieldset>
+        <legend>
+          <h3>Account Details</h3>
+        </legend>
+        <div  class="account-details">
+          <div><label>Email*</label><input type="email" name="email" required></div>
+        
+          <div><label id="l">Backup Email*</label><input type="bemail" name="email2" required></div>
+       
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>
+          <h3>Company Details</h3>
+        </legend>
+        <div  class="personal-details">
+          <div>
+            <div><label> Company Name*</label><input type="text" name="organization_name" onblur="return allLetter(document.form1.name)" required></div>
+            <p id="error1" style="display:none"></p>
+            <script type="text/javascript">
+            function allLetter(inputtxt)
+             {
+              var p=document.getElementById("error1");
+              var letters = /^[A-Za-z]+$/;
+              if(inputtxt.value.match(letters))
+              {
+                p.style="display:none";
+                return true;
+              }
+              else
+              {
+                p.innerHTML="Please Enter Only Alphabets!";
+                    p.style="display:inline";
+                   
+                    p.style="margin-left:230px";
+        
+                return false;
+              }
+             }
+  
+            </script>
+            <div><label>Organisation Type:*</label><input type="text" name="organization_type"></div>
+            <div><label>Phone*</label><input type="number" name="phone" id="ph" onblur="check()" required></div>
+            <p id="error2" style="display:none;"></p>
+            <script type="text/javascript"> 
+            function check()
+            {
+                var p=document.getElementById("error2");
+                var a= document.getElementById("ph").value;
+                var l=a.length;
+                if(l>10||l<10)
+                {
+                   
+                    p.innerHTML="Phone Number must be 10 digits!!"
+                    p.style="display:inline";
+                   
+                    p.style="margin-left:230px";
+        
+                }
+                else{
+                   
+                    p.style="display:none";
+                }
+            }
+            </script>
+            <div><label>State</label><input type="text" name="state"></div>
+            <div><label>City*</label><input type="text" name="city" required></div>
+            <div><label>Admin Name</label><input type="text" name="admin_name"></div>
+           
+            <div><label>Profile Photo</label><input type="file" name="pic" accept="image/x-png,image/gif,image/jpeg"></div>
+          </div>
+          
+            <div class="birthdate">
+              <label style="margin-left:100px;">Date of Est.*</label>
+              <input type = "date" name="dob" value="2000-05-04" style="color:black;width:180px;" min="01-01-1920" max="31-12-2006" required/>
+            </div>
+        </div>
+        <button type="submit" href="/">Submit</button>
+    </fieldset>
+      
+    </form>
+    </div> 
+  </body>
+</html>

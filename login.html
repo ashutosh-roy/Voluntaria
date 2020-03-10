@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login to Voluntaria</title>
+  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class='login'>
+    <!--<img src="images/Hell.png" alt="Voluntaria logo" height="90" width="90" id="a" align="center">-->
+  <div class='login_title'>
+    <span><b> ADMINISTRATOR LOGIN</b></span>
+  
+  </div>
+  <form method="POST" ACTION="demologin.php">
+  <div class='login_fields' >
+    <div class='login_fields__user'>
+      <div class='icon'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+      </div>
+      <input placeholder='Username' type='text' name='username' required>
+        <div class='validation'>
+          <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+        </div>
+      </input>
+    </div>
+    <div class='login_fields__password'>
+      <div class='icon'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png'>
+      </div>
+      <input placeholder='Password' type='password' name="pass" required>
+      <div class='validation'>
+        <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+      </div>
+    </div>
+    <div class='login_fields__submit'>
+      <input type='submit' value='Log In' onclick="onSignIn(username)">
+     <!---- <div class='forgot'>
+        <a href='#'>Forgotten password?</a>
+      </div>-->
+      <a href="reg.html"  id= "r">New User? Click Here</a>
+      <a href="vlogin1.html"  id= "v">Login as Volunteer? Click Here</a>
+    </div>
+  </div>
+</form>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

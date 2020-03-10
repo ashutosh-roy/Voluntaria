@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Page</title>
+    <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel="stylesheet" href="css/acss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function openWin() {
+            window.open("EventReg.html");
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".trigger").click(function() {
+                $('.popup').show();
+            });
+
+            $('.popupCloseButton').click(function() {
+                $('.popup').hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $.fn.eventy = function() {
+                $.ajax({
+                    type: 'POST',
+                    url: 'displayeventdetails.php',
+                    data: {},
+                    success: function(data) {
+                        $('#create2').html(data);
+                    }
+                });
+            }
+
+            var d = setInterval($.fn.eventy, 1000);
+            $.fn.eventy();
+        });
+    </script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+
+            <li id="log"><a href="index.html">Logout</a></li>
+            <li id="pro">
+                <a href="adminpro.php"><img src="images/makefg.png" height="20px" width="20px" alt="profile page"></a>
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+    <div class="popup">
+        <span class="helper"></span>
+        <div>
+            <div class="popupCloseButton">&times;</div>
+            <p style="font-size: 22px;font-family:cursive">
+                Rate the Volunteer Below:
+            </p>
+            <div class="rate">
+                <input type="radio" id="star5" name="rate" value="5" onclick="rate()" />
+                <label for="star5" title="text"></label>
+                <input type="radio" id="star4" name="rate" value="4" onclick="rate()" />
+                <label for="star4" title="text"></label>
+                <input type="radio" id="star3" name="rate" value="3" onclick="rate()" />
+                <label for="star3" title="text"></label>
+                <input type="radio" id="star2" name="rate" value="2" onclick="rate()" />
+                <label for="star2" title="text"></label>
+                <input type="radio" id="star1" name="rate" value="1" onclick="rate()" />
+                <label for="star1" title="text"></label>
+
+            </div>
+            <p style="font-size: 22px;font-family:'Times New Roman', Times, serif;font-style: italic; margin-top:38px;margin-left:10px; float:left; " id="rating"></p>
+
+            <script type="text/javascript">
+                function rate() {
+                    var one = document.getElementById("star1");
+                    var two = document.getElementById("star2");
+                    var three = document.getElementById("star3");
+                    var four = document.getElementById("star4");
+                    var five = document.getElementById("star5");
+                    var p = document.getElementById("rating");
+                    if (one.checked == true) {
+                        p.innerHTML = "1 Star";
+                    } else if (two.checked == true) {
+                        p.innerHTML = "2 Stars";
+                    } else if (three.checked == true) {
+                        p.innerHTML = "3 Stars";
+                    } else if (four.checked == true) {
+                        p.innerHTML = "4 Stars";
+                    } else if (five.checked == true) {
+                        p.innerHTML = "5 Stars";
+                    }
+                }
+            </script>
+
+        </div>
+
+    </div>
+
+    <div id="create2"></div>
+    <div class="create">
+        <div id="t">
+            Add New Event
+        </div>
+        <div class="create2">
+            <button id="eventb" onclick="openWin()">+</button>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="jquery.min.js"></script>
+</body>
+
+
+</html>

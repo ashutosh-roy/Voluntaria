@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="css/estyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function add() {
+
+            var e = document.getElementById("noofroles").value;
+
+            for (i = 0; i < e; i++) {
+                var element = document.createElement("input");
+                element.setAttribute("type", "text");
+                element.setAttribute("value", "");
+                element.setAttribute("name", "rolename");
+                element.setAttribute("placeholder", "Committee " + (i + 1))
+                var foo = document.getElementById("vol");
+                foo.appendChild(element);
+            }
+            var p = document.createElement("input");
+            p.setAttribute("type", "button");
+            p.setAttribute("class", "previous action-button");
+            p.setAttribute("value", "Previous");
+            p.setAttribute("name", "previous");
+            var n = document.createElement("input");
+            n.setAttribute("type", "button");
+            n.setAttribute("class", "next action-button");
+            n.setAttribute("value", "Next");
+            n.setAttribute("name", "next");
+            foo.appendChild(p);
+            foo.appendChild(n);
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var left, opacity, scale; //fieldset properties which we will animate
+            var animating; //flag to prevent quick multi-click glitches
+
+            $(".next").click(function() {
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+
+                //activate next step on progressbar using the index of next_fs
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale current_fs down to 80%
+                        scale = 1 - (1 - now) * 0.2;
+                        //2. bring next_fs from the right(50%)
+                        left = (now * 50) + "%";
+                        //3. increase opacity of next_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'transform': 'scale(' + scale + ')',
+                            'position': 'absolute'
+                        });
+                        next_fs.css({
+                            'left': left,
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 800,
+                    complete: function() {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+            });
+
+            $(".previous").click(function() {
+                if (animating) return false;
+                animating = true;
+
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+
+                //de-activate current step on progressbar
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+                //show the previous fieldset
+                previous_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now, mx) {
+                        //as the opacity of current_fs reduces to 0 - stored in "now"
+                        //1. scale previous_fs from 80% to 100%
+                        scale = 0.8 + (1 - now) * 0.2;
+                        //2. take current_fs to the right(50%) - from 0%
+                        left = ((1 - now) * 50) + "%";
+                        //3. increase opacity of previous_fs to 1 as it moves in
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'left': left
+                        });
+                        previous_fs.css({
+                            'transform': 'scale(' + scale + ')',
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 800,
+                    complete: function() {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    //this comes from the custom easing plugin
+                    easing: 'easeInOutBack'
+                });
+            });
+            var el = document.getElementById("go1");
+            el.parentNode.removeChild(el);
+
+        }
+    </script>
+    <script>
+        function val() {
+            var p = document.getElementById("e").value;
+            var et = document.getElementById("etype").value;
+
+
+            if (p == "" || et == "" || et == "Event Type") {
+
+                alert("Please fill in all the fields!");
+
+            }
+
+        }
+
+        function val1() {
+            var p = document.getElementById("loc").value;
+
+
+
+            if (p == "") {
+
+                alert("Please fill in all the fields!");
+                p.focus();
+
+            }
+
+        }
+
+        function val3() {
+            var today = new Date();
+            var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            var p = document.getElementById("d");
+            p.min = new Date().toISOString().split("T")[0];
+            p.value = new Date().toISOString().split("T")[0];
+
+        }
+    </script>
+    <style>
+        p {
+            color: red;
+            font-size: 12px;
+            float: left;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="myForm" action="eventconnect.php" id="msform" method="POST">
+        <ul id="progressbar">
+            <li class="active">Event Setup</li>
+            <li>Event Details</li>
+            <li>Volunteers Required</li>
+            <li>Event Head Details</li>
+
+        </ul>
+        <fieldset>
+            <h2 class="fs-title">Create your Event</h2>
+            <h3 class="fs-subtitle">This is step 1</h3>
+            <input type="text" name="ename" placeholder="Event Name" id="e" />
+            <select name="etype" id="etype">
+		<option disabled="disabled" selected="selected" placeholder="Event Type">Event Type</option>
+		<option>FundRaiser</option>
+		<option>Food Drive</option>
+		<option>Charity Event</option>
+		<option>Entertainment Programme</option>
+		<option>Donation Drive</option>
+	</select>
+            <input type="button" name="next" class="next action-button" value="Next" onmouseover="val()" />
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Event Details</h2>
+            <h3 class="fs-subtitle">Enter Date, Time and Location of Event</h3>
+            <input type="date" name="edate" placeholder="" max="2020-12-31" id="d" onfocus="val3()" />
+            <input type="time" name="etime" value="12:00:00" />
+            <input type="text" name="eloc" placeholder="Location Address" id="loc" />
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="button" name="next" class="next action-button" value="Next" onmouseover="val1()" />
+        </fieldset>
+        <fieldset id="vol">
+            <h2 class="fs-title">Volunteer Details</h2>
+            <h3 class="fs-subtitle">Enter Volunteer Requirement Details</h3>
+            <input type="number" name="noofvol" placeholder="No. of Volunteers" id="nov" min="1" max="50" />
+            <input type="number" name="noofcomm" placeholder="No. of Committees (Eg: Catering)" min="1" max="20" id="noofroles" onkeyup="numcheck()" onchange="numcheck()" />
+            <p id="error4" style="display:none"></p>
+            <input type="button" name="go" value="Go" id="go1" onclick="add()">
+            <script type="text/javascript">
+                function numcheck() {
+                    var v = Number(document.getElementById("nov").value);
+                    var c = Number(document.getElementById("noofroles").value);
+                    var p = document.getElementById("error4");
+                    if (c > v) {
+                        p.innerHTML = "No. of committees cannot be greater than no. of volunteers!";
+                        p.style = "display:inline";
+                        p.style = "font-size:16px";
+                    } else {
+                        p.style = "display:none";
+                    }
+
+                }
+            </script>
+
+        </fieldset>
+        <fieldset>
+            <h2 class="fs-title">Event Head Details</h2>
+            <h3 class="fs-subtitle">Personal Details of the Event Head</h3>
+            <input type="text" name="adminfname" id="fn" placeholder="First Name" onblur="allLetter(document.myForm.adminfname)" required />
+            <p id="error1" style="display:none"></p>
+            <script type="text/javascript">
+                function allLetter(inputtxt) {
+                    var p = document.getElementById("error1");
+                    var letters = /^[A-Za-z]+$/;
+                    if (inputtxt.value.match(letters)) {
+                        p.style = "display:none";
+                        return true;
+                    } else {
+                        p.innerHTML = "Please Enter Only Alphabets!";
+                        p.style = "display:inline";
+                        p.style = "margin-left:0px";
+
+                        return false;
+                    }
+                }
+            </script>
+            <input type="text" name="adminlname" id="ln" placeholder="Last Name" onblur="isLetter(document.myForm.adminlname)" required/>
+            <p id="error2" style="display:none"></p>
+            <script type="text/javascript">
+                function isLetter(inputtxt) {
+                    var p = document.getElementById("error2");
+                    var letters = /^[A-Za-z]+$/;
+                    if (inputtxt.value.match(letters)) {
+                        p.style = "display:none";
+                        return true;
+                    } else {
+                        p.innerHTML = "Please Enter Only Alphabets!";
+                        p.style = "display:inline";
+                        p.style = "margin-left:0px";
+
+                        return false;
+                    }
+                }
+            </script>
+            <input type="tel" name="adminphone" placeholder="Phone" id="numb" onblur="check()" required />
+            <p id="error3" style="display:none"></p>
+            <script type="text/javascript">
+                function check() {
+                    var p = document.getElementById("error3");
+                    var a = document.getElementById("numb").value;
+                    var l = a.length;
+                    if (l > 10 || l < 10) {
+
+                        p.innerHTML = "Phone Number must be 10 digits!!"
+                        p.style = "display:inline";
+
+
+                    } else {
+
+                        p.style = "display:none";
+                    }
+                }
+            </script>
+            <input type="email" name="adminemail" placeholder="xyz@gmail.com" required/>
+            <textarea name="address" placeholder="Address" required></textarea>
+            <input type="button" name="previous" class="previous action-button" value="Previous" />
+            <input type="submit" name="submit" id="s" value="Submit" style="width: 100px;
+            background: rgb(26, 85, 173);;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 1px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px 5px;">
+        </fieldset>
+
+    </form>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

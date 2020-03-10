@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<!--
+	Prism by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+
+<head>
+    <title>Recruitment Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+
+
+        </ul>
+
+    </nav>
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="inner split">
+            <section>
+                <script>
+                    var slideIndex = 0;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("dot");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                    }
+                </script>
+                <div class="slideshow-container">
+
+                    <div class="mySlides">
+                        <q><font color=black>You may not have saved a lot of money in your life, but if you have saved a lot of heartaches for other folks, you are a pretty rich man.”</font></q>
+                        <p class="author">- Seth Parker</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q><font color = black>Volunteers are the only human beings on the face of the earth who reflect this nation’s compassion, unselfish caring, patience, and just plain loving one another.”</font></q>
+                        <p class="author">- Erma Bombeck</p>
+                    </div>
+
+                    <div class="mySlides">
+                        <q><font color = black>“You make a living by what you get. You make a life by what you give.”</font></q>
+                        <p class="author">- Winston Churchill</p>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+
+
+                <div class="dot-container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </section>
+            <section>
+                <h2>Recruit Volunteers like never before with Voluntaria</h2>
+                <ul class="actions">
+                    <li><a href="file:///C:/Users/Debmalya%20Das/Downloads/Dbms%20Project-20200120T042032Z-001/Dbms%20Project/reg.html" class="button special">Get started</a></li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- One -->
+    <section id="one" class="wrapper">
+        <div class="inner split">
+            <section>
+                <h2>
+                    <font color=# e65858>Let's recruit</font>
+                </h2>
+                <p>Voluntaria takes you to a volunteer forum where you can choose, invite and recruit volunteers to your respective events. Rate the Volunteer according to their work progress. You can also keep volunteers under your watchlist according to
+                    a matching preference.</p>
+                <ul class="actions">
+                    <li><a href="#" class="button alt">Learn more</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul class="checklist">
+                    <li>
+                        <font color=# EF755B>Add the number of Committees based on your Requirement</font>
+                    </li>
+                    <li>
+                        <font color=# EF755B>Choose, Invite, Recruit, volunteers based on your preference</font>
+                    </li>
+                    <li>
+                        <font color=# EF755B>Keep Volunteers under your radar for future events</font>
+                    </li>
+                    <li>
+                        <font color=# EF755B>Visit Volunteer profiles and access their portfolios</font>
+                    </li>
+                    <li>
+                        <font color=# EF755B>Interact with Volunteers before recruiting them</font>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Two -->
+    <section id="two" class="wrapper style2 alt">
+
+        <ul class="actions special">
+            <li><a href="#"><button onclick="topFunction()" id="myBtn" title="Go to top">Top</button></a></li>
+        </ul>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="wrapper">
+        <div class="inner split">
+            <section>
+                <img src="images/fl.png" alt="HTML5 Icon" height="120" breadth="120">
+                <p>For more queries or info on Voluntaria fill the details below:</p>
+                <form action="#" class="alt" method="POST">
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <input name="name" placeholder="Name" type="text">
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input name="email" placeholder="Email" type="email">
+                        </div>
+                        <div class="12u$">
+                            <textarea name="message" placeholder="Message" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input class="alt" value="Send message" type="submit"></li>
+                    </ul>
+                </form>
+            </section>
+            <section>
+                <ul class="contact">
+                    <li class="fa-twitter"><a href="#">twitter.com/@UVoluntaria</a></li>
+                    <li class="fa-facebook"><a href="#">facebook.com/Voluntaria</a></li>
+                    <li class="fa-instagram"><a href="#">instagram.com/U_Voluntaria</a></li>
+                    <li class="fa-envelope"><a href="#">teamencrypt024@gmail.com</a></li>
+                    <li class="fa-home">364, Biren Roy Road (East) Kolkata-700008</li>
+                </ul>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="copyright">
+
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

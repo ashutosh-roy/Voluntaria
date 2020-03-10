@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Voluntaria</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/nivo-lightbox.css">
+    <link rel="stylesheet" href="css/nivo_themes/default/default.css">
+    <link rel="stylesheet" href="css/templatemo-style.css">
+    <!-- google web font css -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- navigation -->
+
+    <div class="container">
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+                <a href="#" class="navbar-brand"><img src="images/fl.png" class="img-responsive" alt="logo" height="200" width="200" id="im"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="index.html" class="active">HOME</a></li>
+                    <!--<li><a href="about.html">ABOUT US</a></li>-->
+
+                    <!--- Commenting the PORTFOLIO -->
+                    <!---<li><a href="portfolio.html">PORTFOLIO</a></li>-->
+
+                    <li class="dropdown"><a>LOGIN </a>
+                        <div class="dropdown-content" style="font-color:black" ;>
+                            <a href="adminlogin.html">Login as Admin</a>
+                            <a href="newvlogin1.html">Login as Volunteer</a>
+
+                        </div>
+                    </li>
+                    <li><a href="#bottom">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="home">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-7 col-sm-9">
+                    <h1 class="ml3" style="font-size:120px; font-family:Lobster;font-weight:lighter">
+                        <span class="text-wrapper">
+                          
+                          <span class="letters">Voluntaria</span>
+
+                        </span>
+                    </h1>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+                    <script type="text/javascript">
+                        var textWrapper = document.querySelector('.ml3');
+                        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+                        anime.timeline({
+                                loop: true
+                            })
+                            .add({
+                                targets: '.ml3 .letter',
+                                opacity: [0, 1],
+                                easing: "easeInOutQuad",
+                                duration: 2250,
+                                delay: (el, i) => 150 * (i + 1)
+                            }).add({
+                                targets: '.ml3',
+                                opacity: 0,
+                                duration: 1000,
+                                easing: "easeOutExpo",
+                                delay: 1000
+                            });
+                    </script>
+                </div>
+
+            </div>
+
+            <p style="font-size:24px; color:white;width:100%;margin-left:10px;font-family: cursive;">"Unselfish and noble actions are the most radiant pages in the biography of souls."</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- divider section -->
+    <div class="divider">
+        <div class="container">
+
+            <div class="row">
+                <h1 style=" font-size:40px; font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-bottom:100px;"><span class="multicolortext">OUR FEATURES</span></h1>
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="divider-wrapper divider-one">
+                        <i class="fa fa-group"></i>
+                        <h2><a style="text-decoration: none;" href="Recruiting.html">Recruitment</a></h2>
+                        <p>Voluntaria includes features to help you promote volunteering oppurtunities, provide application forms, and easily add applicants to the database.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="divider-wrapper divider-two">
+                        <i class="fa fa-mobile"></i>
+                        <h2><a style="text-decoration: none;" href="Scheduling.html">Scheduling and Tracking</a> </h2>
+                        <p>For organizing any event, time management is always a major issue. Voluntaria comes to the rescue by helping you to easily add and schedule events based on date,time and location.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="divider-wrapper divider-three">
+                        <i class="fa fa-trophy"></i>
+                        <h2><a style="text-decoration: none;" href="Analyzing.html">Performance Analysis</a></h2>
+                        <p>With an event where a large no. of people are involved, many a times the contributions of the volunteers go unnoticed. So, Voluntaria provides the report acknowledging their contributions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <br>
+                <div class="col-md-4 col-sm-6">
+                    <div class="divider-wrapper divider-four">
+                        <i class="fa fa-male"></i>
+                        <h2><a style="text-decoration: none;" href="Register.html">Registration</a></h2>
+                        <p>With too many important events going on all around the country, voluntaria helps you to register, search and get notifications for events according to your own preference. It allows you to check out the profiles of various organizations.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="divider-wrapper divider-five">
+                        <i class="fa fa-tasks"></i>
+                        <h2><a style="text-decoration: none;" href="Task Operation.html">Task Operation and Organization</a> </h2>
+                        <p>Voluntaria helps a volunteer in organising & choosing tasks and helps in maintaining work progress. A record is kept of the work done by the volunteer and ensures that the volunteer's efforts don't go unnoticed.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="divider-wrapper divider-six">
+                        <i class="fa fa-user"></i>
+                        <h2><a style="text-decoration: none;" href="Profile.html">Profile Builder</a> </h2>
+                        <p>With an event where a large no of people are involved, many a times the contributions of the volunteers go unnoticed. But with the performance analysis system in place Voluntaria helps in building up the profile of a volunteer
+                            with various credit points and credits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container" id="bottom">
+            <div class="row">
+
+                <div class="col-md-5 col-sm-4">
+                    <img src="images/fl.png" class="img-responsive" alt="logo" height="180" width="200" id="imr">
+                    <p>Contact Us At:
+
+                    </p>
+                    <p><i class="fa fa-phone"></i>6290766525</p>
+                    <p><i class="fa fa-envelope-o"></i>teamencrypt024@gmail.com</p>
+                    <p><i class="fa fa-globe"></i> www.voluntaria.com</p>
+                </div>
+
+                <div class="col-md-3 col-sm-4">
+
+
+                </div>
+
+                <div class="col-md-4 col-sm-4 newsletter">
+                    <h3>Newsletter</h3>
+                    <!---- <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismo.</p> -->
+                    <div class="input-group">
+                        <form action="#" method="post">
+                            <input name="email" type="email" placeholder="Enter your email" class="form-control" autorequired>
+                            <button type="submit" name="submit" class="btn email">Submit</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- copyright section -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <p>Copyright © 2084 Voluntaria</p>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <ul class="social-icons">
+                        <li>
+                            <a href="https://www.facebook.com" class="fa fa-facebook"></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com" class="fa fa-instagram"></a>
+                        </li>
+                        <li>
+                            <a href="mailto:teamencrypt024@gmail.com?subject=Contact Us" class="fa fa-envelope-o"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- javascript js -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/nivo-lightbox.min.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>x
